@@ -1,0 +1,13 @@
+#Basta manter todos os arquivos na mesma pasta
+#Para outras extensões, basta adaptar os pacotes
+
+
+install.packages("read.dbc")
+library(read.dbc)
+ 
+files <- list.files(path="D://users/mariana.queiroz/Documents/PA2016/PA2016", pattern="*.dbc",
+                    full.names=TRUE, recursive=FALSE)
+ 
+read.all <- lapply(files, read.dbc)
+ 
+df_2016 <- do.call("rbind",read.all)
