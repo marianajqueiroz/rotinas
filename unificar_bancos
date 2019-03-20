@@ -11,3 +11,7 @@ files <- list.files(path="D://users/mariana.queiroz/Documents/PA2016/PA2016", pa
 read.all <- lapply(files, read.dbc)
  
 df_2016 <- do.call("rbind",read.all)
+
+#Em casos de arquivos com números diferentes de colunas, substituir o último comando
+
+df_2016 <- rbindlist(read.all,fill=TRUE)
